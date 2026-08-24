@@ -11,7 +11,7 @@ AutoLearn is the transaction and evidence layer, not another agent wrapper. An A
 ## One-command verification
 
 ```bash
-sh doit.sh
+sh install.sh
 ```
 
 Eight tests cover initialization, no-edit planning and auditing, evidence-backed keeps, metric regressions, gate regressions, file-mode restoration, protected-path violations, and evaluator side effects.
@@ -56,3 +56,12 @@ Agent plugins such as [Karpathy's autoresearch](https://github.com/karpathy/auto
 - AutoLearn never edits secrets intentionally. Preserve patterns are enforced after execution, not a substitute for OS permissions.
 
 See [SUPPORT.md](SUPPORT.md) to fund further development or attach a confirmed public transaction hash to a specific work request.
+
+
+## Install and run
+
+```sh
+chmod +x install.sh run.sh
+./install.sh
+./run.sh --help
+```
