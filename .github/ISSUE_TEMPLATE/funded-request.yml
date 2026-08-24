@@ -1,0 +1,32 @@
+name: Confirmed-donation work request
+description: Request a specific AutoLearn improvement after a confirmed public donation.
+title: "[funded request] "
+body:
+  - type: dropdown
+    id: asset
+    attributes:
+      label: Asset and network
+      options: [Bitcoin, Ethereum/EVM, Dogecoin]
+    validations:
+      required: true
+  - type: input
+    id: transaction
+    attributes:
+      label: Public transaction hash
+      description: Never post a seed phrase, private key, exchange login, or other secret.
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: Requested work
+      description: State the measurable feature, test, or documentation improvement you want prioritized.
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Terms
+      options:
+        - label: I understand a donation does not purchase support, ownership, returns, guaranteed delivery, or preferential treatment.
+          required: true
