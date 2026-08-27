@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
-set -eu
-ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+#!/usr/bin/env bash
+set -Eeuo pipefail
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 PY="$ROOT/.venv/bin/python"
-[ -x "$PY" ] || { echo "Run ./install.sh first." >&2; exit 1; }
-cd "$ROOT"
-if [ "$#" -eq 0 ]; then set -- report; fi
-exec "$PY" -m autolearn "$@"
+if [[ ! -f "$ROOT/.venv/.repo-gui-ready" ]] || [[ ! -x "$PY" ]] || ! "$PY" -c 'import PySide6' >/dev/null 2>&1; then
+    "$ROOT/install.sh"
+fi
+exec env PROJECT_TITLE="AutoLearn" "$PY" "$ROOT/project_gui.py" "$@"
